@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/streamers">streamers</router-link> |
-      <router-link to="/about">About</router-link> |
+      <router-link to="/register">About</router-link> |
       <router-link to="/login">login</router-link>
     </div>
     <router-view />

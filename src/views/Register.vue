@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <form @submit.prevent="login">
+    <form method="post" @submit.prevent="register">
      <div id="account">
         <img src="@/assets/56978985_p0.jpg" />
         <input id="account" name="account" maxlength="12" type="text" placeholder="账号" v-model="account" />
@@ -9,10 +9,19 @@
         <img src="@/assets/58538666_p0.jpg" />
         <input name="psd" maxlength="12" type="password" placeholder="密码" v-model="password"/>
     </div>
+    <div id="nickName">
+        <img src="@/assets/73075882_p0.png" />
+        <input name="nickname" maxlength="8" type="text" placeholder="昵称" v-model="nickname" />
+    </div>
+    <div id="gender">
+        <img src="@/assets/73311827_p0.jpg" />
+        <input type="radio" name="gender" v-model="gender" value="1" checked/>男
+        <input type="radio" name="gender" v-model="gender" value="0"/>女
+    </div>
     <div>
         <div>
-            <input id="submit" type="submit" value="登录" /></div>
-        <div id="toregister">
+            <input id="submit" type="submit" value="立即注册" /></div>
+        <div id="tologin">
             <span >去登陆</span></div>
     </div>
     </form>
@@ -43,7 +52,7 @@
         background-color: rgba(0, 0, 0, 0);
         outline:none;
     }
-    #account>input,#password>input{
+    #account>input,#password>input,#nickName>input{
         width:250px;
     }
     #submit{
@@ -60,31 +69,35 @@
     #submit:hover{
         background-color: rgb(255, 144, 101);
     }
-    #toregister>span{
+    #tologin>span{
         text-decoration-line: underline;
     }
-    #toregister>span:hover{
+    #tologin>span:hover{
         opacity: .5;
     }
 
 </style>
 <script>
 export default {
-  name: 'login',
+  name: 'register',
   data () {
     return {
+      gender: 0,
       account: '',
-      password: ''
+      password: '',
+      nickname: ''
     }
   },
   methods: {
-    login: function () {
-      const url = 'api/v1/user/login'
+    register: function () {
+      const url = '/api/v1/user/regist'
       var data = {
         account: this.account,
-        password: this.password
+        password: this.password,
+        nickname: this.nickname,
+        gender: Number(this.gender)
       }
-      this.$put(url, data).then(res => {
+      this.$post(url, data).then(res => {
         alert('succeed:' + res)
       }).catch(res => {
         alert('failed:' + res)
