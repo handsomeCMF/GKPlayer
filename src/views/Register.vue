@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <form method="post" @submit.prevent="register">
+    <form method="post" @submit.prevent="register" autocomplete="off">
      <div id="account">
         <img src="@/assets/56978985_p0.jpg" />
         <input id="account" name="account" maxlength="12" type="text" placeholder="账号" v-model="account" />
@@ -78,6 +78,7 @@
 
 </style>
 <script>
+import { register as registerUser } from '../common/User.js'
 export default {
   name: 'register',
   data () {
@@ -90,18 +91,13 @@ export default {
   },
   methods: {
     register: function () {
-      const url = '/api/v1/user/regist'
       var data = {
         account: this.account,
         password: this.password,
         nickname: this.nickname,
         gender: Number(this.gender)
       }
-      this.$post(url, data).then(res => {
-        alert('succeed:' + res)
-      }).catch(res => {
-        alert('failed:' + res)
-      })
+      registerUser(data).then(mes => { alert(JSON.stringify(mes)) })
     }
   }
 }

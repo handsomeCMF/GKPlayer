@@ -1,9 +1,9 @@
 <template>
 <div id="app">
-    <form @submit.prevent="login">
+    <form @submit.prevent="login" autocomplete="off">
      <div id="account">
         <img src="@/assets/56978985_p0.jpg" />
-        <input id="account" name="account" maxlength="12" type="text" placeholder="账号" v-model="account" />
+        <input id="account" name="account" maxlength="12" type="text" placeholder="账号" v-model="account"  />
     </div>
     <div id="password">
         <img src="@/assets/58538666_p0.jpg" />
@@ -13,7 +13,7 @@
         <div>
             <input id="submit" type="submit" value="登录" /></div>
         <div id="toregister">
-            <span >去登陆</span></div>
+            <span >去注册</span></div>
     </div>
     </form>
 </div>
@@ -69,26 +69,22 @@
 
 </style>
 <script>
+import { login as loginuser } from '../common/User.js'
 export default {
   name: 'login',
   data () {
     return {
-      account: '',
-      password: ''
+      account: localStorage.getItem('player-account'),
+      password: localStorage.getItem('player-password')
     }
   },
   methods: {
     login: function () {
-      const url = 'api/v1/user/login'
-      var data = {
+      var logMes = {
         account: this.account,
         password: this.password
       }
-      this.$put(url, data).then(res => {
-        alert('succeed:' + res)
-      }).catch(res => {
-        alert('failed:' + res)
-      })
+      loginuser(logMes).then(mes => { alert(mes) })
     }
   }
 }

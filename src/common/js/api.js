@@ -4,12 +4,11 @@ import qs from 'qs'
 // post方式请求
 export function post (url, params = {}, context) {
   var promise = new Promise(function (resolve, reject) {
-    console.log(qs.parse(params))
     axious.post(url, qs.parse(params), { headers: { 'Content-Type': 'application/json' } })
       .then(function (res) {
-        console.log(res)
         if (res.status === 200) {
           if (res.data.status === 200) {
+            console.log(res.data.data.token)
             resolve(res.data.data)
           } else {
             var mes = res.data.status + ':' + res.data.message
@@ -25,16 +24,15 @@ export function post (url, params = {}, context) {
   })
   return promise
 }
-
+// put方式
 export function put (url, params = {}, context) {
   var promise = new Promise(function (resolve, reject) {
-    console.log(qs.parse(params))
     axious.put(url, qs.parse(params), { headers: { 'Content-Type': 'application/json' } })
       .then(function (res) {
-        console.log(res)
         if (res.status === 200) {
           if (res.data.status === 200) {
-            resolve(res.data.data)
+            console.log(res.data.data.token)
+            resolve(1)
           } else {
             var mes = res.data.status + ':' + res.data.message
             reject(mes)
@@ -64,8 +62,10 @@ export function get (url, params = {}, context) {
         url += '=' + params[keys[i]]
       }
     }
+    console.log('request:' + url)
     axious.get(url)
       .then(function (res) {
+        console.log('response:' + res)
         if (res.status === 200) {
           console.log(res.data)
           resolve(res.data)

@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <img id="anthor" src="../assets/56978985_p0.jpg" />
+    <img id="anthor" src="../assets/73075882_p0.png" />
     <div id="message">
         <div class="mess-fir">
             <span class="streamer-field">{{field}}</span>
