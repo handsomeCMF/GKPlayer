@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="test">
         <ImgInput imgpath="../assets/logo.png" title="password"></ImgInput>
         <ImgInput title="password"></ImgInput>
     </div>

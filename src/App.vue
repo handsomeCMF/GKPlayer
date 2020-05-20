@@ -1,11 +1,19 @@
 <template>
   <div id="app">
     <header>
-      <div class=""></div>
-      <div id="nav">
-        <router-link to="/streamers">streamers</router-link> |
-        <router-link to="/register">Register</router-link> |
-        <router-link to="/login">login</router-link>
+      <div class="header-nav">
+        <ul>
+          <li><a>首页</a></li>
+          <li><router-link to="/streamers" class="header-nav-chosen">直播</router-link></li>
+          <li><a href="/" target="_blank">游戏</a></li>
+          <li><a href="/" target="_blank">视频</a></li>
+          <li><a href="/" target="_blank">分类</a></li>
+          <li><a href="/" target="_blank">评论</a></li>
+        </ul>
+      </div>
+      <div class="header-right">
+          <router-link to="/login">登录</router-link>
+          <router-link to="/register">注册</router-link>
       </div>
     </header>
     <aside>
@@ -18,57 +26,6 @@
   </div>
 </template>
 
-<style>
-header{
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  position:  absolute;
-  height: 60px;
-}
-header>#nav{
-  background-color: lightcoral;
-  z-index: 600;
-  position: fixed;
-  width: 100%;
-  height: 60px;
-}
+<style src='@/resources/css/app.css'>
 
-aside{
-  z-index: 600;
-  position: fixed;
-  background-color: #2d2e36;
-  top: 60px;
-  left: 0px;
-  bottom: 0px;
-  width: 100px;
-}
-
-.main-layout{
-  position: relative;
-  z-index: 500;
-  padding-left: 100px;
-  padding-top: 60px;
-  background-color: rgb(242, 244, 245);
-  min-width: 1500px;
-}
-
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  background-color: rgb(242, 244, 245);
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

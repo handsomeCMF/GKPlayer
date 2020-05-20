@@ -19,54 +19,7 @@
 </div>
 </template>
 
-<style scoped>
-    img{
-        width:50px;
-        height: 50px;
-        vertical-align: middle;
-    }
-    #app{
-        font-size: 15px;
-        text-align: center;
-        background-color: khaki;
-    }
-    div>input{
-        height: 25px;
-        vertical-align: middle;
-        margin:0 10px;
-        line-height: 10px;
-        border-top-width:0px;
-        border-left-width:0px;
-        border-right-width:0px;
-        border-bottom-width: 1px;
-        border-color:burlywood;
-        background-color: rgba(0, 0, 0, 0);
-        outline:none;
-    }
-    #account>input,#password>input{
-        width:250px;
-    }
-    #submit{
-        border:0px;
-        border-radius: 20px;
-        width:300px;
-        height: 40px;
-        background-color: lightsalmon;
-        letter-spacing: 10px;
-        font-size: 16px;
-        outline:none;
-        margin:10px 0px 5px 0px;
-    }
-    #submit:hover{
-        background-color: rgb(255, 144, 101);
-    }
-    #toregister>span{
-        text-decoration-line: underline;
-    }
-    #toregister>span:hover{
-        opacity: .5;
-    }
-
+<style src='../resources/css/login.css' scoped>
 </style>
 <script>
 import { login as loginuser } from '../common/User.js'

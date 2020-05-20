@@ -1,0 +1,94 @@
+.header-nav{
+    float: left;
+    position: relative;
+    left:10%;
+  }
+  .header-nav>ul{
+    list-style: none;
+  }
+  .header-nav>ul>li{
+    font-size:16px;
+    display: inline-block;
+    margin: 0px 6px;
+    line-height: 3.5;
+  }
+  .header-nav>ul>li>a:hover, .header-right>a:hover{
+    color: rgba(255,93,35,1);
+  }
+  .header-nav a{
+    text-decoration: none;
+    cursor: pointer;
+    width: 40px;
+    background-color: transparent;
+     color: rgba(255,255,255,1);
+  }
+  a.header-nav-chosen{
+    color: rgba(255,93,35,1);
+  }
+  .header-right{
+    float: right;
+    position: relative;
+    margin-right: 20px;
+    line-height: 3.5;
+  }
+  .header-right>a{
+    text-decoration: none;
+    background-color: transparent;
+    color: rgba(255,255,255,1);
+    margin:0px 6px;
+    cursor: pointer;
+  }
+  header{
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position:  fixed;
+    height: 60px;
+    background-color:lightpink;
+    z-index: 200;
+  }
+  
+  aside{
+    z-index: 200;
+    position: fixed;
+    background-color: #2d2e36;
+    top: 60px;
+    left: 0px;
+    bottom: 0px;
+    width: 100px;
+  }
+  
+  .main-layout{
+    position: relative;
+    z-index: 100;
+    padding-left: 120px;
+    padding-top: 80px;
+    background-color: rgb(242, 244, 245);
+    min-width: 900px;
+  }
+  
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    background-color: rgb(242, 244, 245);
+  }
+  
+  #nav a {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  
+  #nav a.router-link-exact-active {
+    color: #42b983;
+  }
+  
+  .lgn-box{
+    position: fixed;
+    background-color: pink;
+    top:50%;
+    left:50%;
+  }
