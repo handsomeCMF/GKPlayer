@@ -23,12 +23,13 @@
 </style>
 <script>
 import { login as loginuser } from '../common/User.js'
+import { setCookie } from '@/common/cookieTools.js'
 export default {
   name: 'login',
   data () {
     return {
-      account: localStorage.getItem('player-account'),
-      password: localStorage.getItem('player-password')
+      account: '', // localStorage.getItem('player-account'),
+      password: '' // localStorage.getItem('player-password')
     }
   },
   methods: {
@@ -37,7 +38,10 @@ export default {
         account: this.account,
         password: this.password
       }
-      loginuser(logMes).then(mes => { alert(mes) })
+      loginuser(logMes).then(mes => {
+        setCookie('usertooken', mes.token)
+        this.$emit('submit', true)
+      })
     }
   }
 }

@@ -12,7 +12,7 @@
     margin: 0px 6px;
     line-height: 3.5;
   }
-  .header-nav>ul>li>a:hover, .header-right>a:hover{
+  .header-nav>ul>li>a:hover, .header-right a:hover{
     color: rgba(255,93,35,1);
   }
   .header-nav a{
@@ -30,11 +30,11 @@
     position: relative;
     margin-right: 20px;
     line-height: 3.5;
+    color: rgba(255,255,255,1);
   }
-  .header-right>a{
+  .header-right a{
     text-decoration: none;
     background-color: transparent;
-    color: rgba(255,255,255,1);
     margin:0px 6px;
     cursor: pointer;
   }
@@ -91,4 +91,11 @@
     background-color: pink;
     top:50%;
     left:50%;
+  }
+  .header-right-login img{
+    margin-top: 2px;
+    border-radius: 50px;
+    width:55px;
+    height: 55px;
+    background-color: antiquewhite;
   }

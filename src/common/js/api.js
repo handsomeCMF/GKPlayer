@@ -32,7 +32,7 @@ export function put (url, params = {}, context) {
         if (res.status === 200) {
           if (res.data.status === 200) {
             console.log(res.data.data.token)
-            resolve(1)
+            resolve(res.data.data)
           } else {
             var mes = res.data.status + ':' + res.data.message
             reject(mes)
