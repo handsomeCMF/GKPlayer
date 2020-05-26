@@ -7,6 +7,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 Vue.prototype.$domain = 'api/v1/'
+
 Vue.use(ElementUI)
 
 new Vue({

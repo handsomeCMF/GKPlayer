@@ -22,7 +22,8 @@
         <div>
             <input id="submit" type="submit" value="立即注册" /></div>
         <div id="tologin">
-            <span >去登陆</span></div>
+            <!-- <span >去登陆</span> -->
+            </div>
     </div>
     </form>
 </div>

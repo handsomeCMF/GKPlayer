@@ -13,7 +13,8 @@
         <div>
             <input id="submit" type="submit" value="登录" /></div>
         <div id="toregister">
-            <span >去注册</span></div>
+            <!-- <span >去注册</span>-->
+            </div>
     </div>
     </form>
 </div>
@@ -23,7 +24,7 @@
 </style>
 <script>
 import { login as loginuser } from '../common/User.js'
-import { setCookie } from '@/common/cookieTools.js'
+import { setCookie, cookieKeys } from '@/common/cookieTools.js'
 export default {
   name: 'login',
   data () {
@@ -39,7 +40,7 @@ export default {
         password: this.password
       }
       loginuser(logMes).then(mes => {
-        setCookie('usertooken', mes.token)
+        setCookie(cookieKeys.userName, mes.token)
         this.$emit('submit', true)
       })
     }

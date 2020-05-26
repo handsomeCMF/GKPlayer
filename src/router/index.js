@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import streamers from '../views/streamers.vue'
 import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
+import Liverooms from '../views/Liverooms.vue'
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ const routes = [
     name: 'home',
     path: '/Home',
     component: Home
+  },
+  {
+    name: 'liveroom',
+    path: '/Liveroom',
+    component: Liverooms
   }
 ]
 

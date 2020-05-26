@@ -1,4 +1,6 @@
 
+const cookieKeys = { userName: 'userName' }
+
 var getCookie = function (cookieKey) {
   // 根据cookie的key来确定value的位置
   var allCookies = document.cookie
@@ -21,4 +23,4 @@ var setCookie = function (cookieKey, cookieValue) {
   maxAge.setTime(maxAge.getTime() + days * 24 * 3600 * 1000)
   document.cookie = cookieKey + '=' + escape(cookieValue) + ';exprise=' + maxAge.toGMTString()
 }
-export { getCookie, setCookie }
+export { getCookie, setCookie, cookieKeys }

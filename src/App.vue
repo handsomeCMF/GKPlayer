@@ -3,12 +3,9 @@
     <header>
       <div class="header-nav">
         <ul>
-          <li><a>首页</a></li>
-          <li><router-link to="/streamers" class="header-nav-chosen">直播</router-link></li>
-          <li><a href="/" target="_blank">游戏</a></li>
-          <li><a href="/" target="_blank">视频</a></li>
-          <li><a href="/" target="_blank">分类</a></li>
-          <li><a href="/" target="_blank">评论</a></li>
+          <li v-for="nav in headerNav" :key="nav.index">
+            <router-link :class="{'header-nav-chosen':chooseNav===nav.index}" :to="nav.path" :target="nav.target" @click.native="changeNav(nav.index)">{{nav.name}}</router-link>
+          </li>
         </ul>
       </div>
       <div class="header-right" >
@@ -17,7 +14,7 @@
           <a @click="registerVisible=true">注册</a>
         </div>
         <div class="header-right-login" v-else>
-          <a href="/" target="_blank">
+          <a >
             <img src="@/assets/73311827_p0.jpg"/>
           </a>
         </div>
@@ -50,20 +47,34 @@
 <script>
 import Login from '../src/views/Login.vue'
 import Register from '../src/views/Register.vue'
-import { getCookie } from './common/cookieTools.js'
+import { getCookie, cookieKeys } from './common/cookieTools.js'
 
-var tooken = getCookie('usertooken')
+var tooken = getCookie(cookieKeys.userName)
+
 export default {
   name: 'app',
   components: {
     logdialog: Login,
     regdialog: Register
   },
+  methods: {
+    changeNav: function (val) {
+      this.chooseNav = val
+    }
+  },
   data () {
     return {
+      chooseNav: 2,
       islogin: tooken.length > 0,
       loginVisible: false,
-      registerVisible: false
+      registerVisible: false,
+      headerNav: [{ index: 1, name: '首页', path: '/Liveroom', target: '_self' },
+        { index: 2, name: '直播', path: '/streamers', target: '_self' },
+        { index: 3, name: '视频', path: '/', target: '_self' },
+        { index: 4, name: '游戏', path: '/', target: '_self' },
+        { index: 5, name: '分类', path: '/', target: '_self' },
+        { index: 6, name: '评论', path: '/', target: '_self' }
+      ]
     }
   }
 }
