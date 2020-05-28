@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-    <img id="anthor" src="../assets/73075882_p0.png" />
+    <img id="anthor" :src=" (imgpath===undefined || imgpath===null) ?'/img/73075882_p0.02bb4f94.png':imgpath" />
     <div id="message">
         <div class="mess-fir">
             <span class="streamer-field">{{field}}</span>
@@ -12,10 +12,12 @@
                 {{fire}}
             </span>
 
-            <h2 class="streamer-name">
-                <!-- <img src="../assets/user.png"/> -->
-                {{sname}}
-            </h2>
+            <div class="mess-avator">
+              <img :src="(avatarImg === undefined || avatarImg===null) ?'/img/user.eaefaedb.png':avatarImg"/>
+              <h2 class="streamer-name">
+                  {{sname}}
+              </h2>
+            </div>
         </div>
             <span>{{introduce}}</span>
     </div>
@@ -32,6 +34,8 @@ export default {
     }
   },
   props: {
+    avatarImg: String,
+    imgpath: String,
     field: String,
     title: String,
     fire: Number,

@@ -4,6 +4,7 @@ import streamers from '../views/streamers.vue'
 import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
 import Liverooms from '../views/Liverooms.vue'
+import Liveroom from '../views/Liveroom.vue'
 
 Vue.use(VueRouter)
 
@@ -11,7 +12,8 @@ const routes = [
   {
     path: '/streamers',
     name: 'streamers',
-    component: streamers
+    component:
+      streamers
   },
   {
     path: '/register',
@@ -32,9 +34,15 @@ const routes = [
     component: Home
   },
   {
+    name: 'liverooms',
+    path: '/Liverooms',
+    component:
+      Liverooms
+  },
+  {
     name: 'liveroom',
-    path: '/Liveroom',
-    component: Liverooms
+    path: '/Liveroom/:id/:avatorImg',
+    component: Liveroom
   }
 ]
 

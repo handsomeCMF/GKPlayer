@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <section>
         <div id="titleBar">
 
         </div>
@@ -12,7 +12,10 @@
         <div id="streamer">
           <ul>
             <li v-for="item in liverooms" :key="item.id">
-              <streamer-item :field="item.field" :title="item.title" :fire="item.fire" :sname="item.sname" :introduce="item.introduce"></streamer-item>
+              <router-link :to="{name:'liveroom',params:{id:item.userId,avatorImg:item.avatorImg}}" style="text-decoration:none">
+                <streamer-item :field="item.field" :title="item.title" :fire="item.fire" :sname="item.sname" :introduce="item.introduce" :avatarImg="item.avatorImg" :imgpath="item.imagepath"></streamer-item>
+              </router-link>
+
             </li>
           </ul>
             <div class="block">
@@ -25,13 +28,10 @@
                 </el-pagination>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <style scoped>
-#streamer{
-  overflow:auto;
-}
 #streamer>ul{
   list-style: none;
   display: flex;
@@ -48,50 +48,11 @@
   padding:0px 14px;
   margin-bottom: 20px;
 }
+.el-pagination{
+  text-align: center;
+}
 
 </style>
 
-<script>
-import streamer from '../components/streamer-item'
-import { roomList } from '../common/LiveRoom.js'
-
-export default {
-  name: 'liverooms',
-  data () {
-    return {
-      pageSize: 1,
-      liverooms: [],
-      total: 30,
-      currentpage: 2
-    }
-  },
-  computed: {
-    funTotal () {
-      return this.total
-    }
-  },
-  components: {
-    'streamer-item': streamer
-  },
-  methods: {
-    changePageSize: function (val) {
-      this.pageSize = val
-    },
-    getRoomList: function (newPage) {
-      var params = {
-        status: 'off',
-        page: newPage,
-        pagesize: this.pageSize
-      }
-      roomList(params, this).then(res => {
-        this.total = res.total
-        this.liverooms = []
-        for (const room of res.data) {
-          var item = { field: '领域', title: room.title, fire: 26000, sname: '主播名', introduce: '主播介绍' }
-          this.liverooms.push(item)
-        }
-      })
-    }
-  }
-}
+<script type="text/javascript" src='@/resources/js/Liverooms.js'>
 </script>

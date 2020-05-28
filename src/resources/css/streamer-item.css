@@ -52,3 +52,11 @@
       font-size: 13px;
       line-height: 24px;
   }
+
+  .mess-avator{
+      display: flex; 
+  }
+  .mess-avator>img{
+      width:20px;
+      height: 20px;
+  }

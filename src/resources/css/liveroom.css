@@ -1,0 +1,80 @@
+.personlive{
+    display: flex;
+    background-color: #f2f5f6;
+}
+.live{
+    margin: 0 3px;
+    flex:7;
+    border:rgb(228, 228, 228) 1px solid;
+    position: relative;
+}
+
+.contact{
+    flex: 3;
+    margin: 0 3px;
+    border:rgb(228, 228, 228) 1px solid;
+    position: relative;
+}
+
+.live-title{
+    height: 90px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+.title-avator{
+    padding: 5px;
+    height: 85px;
+    width: 85px;
+}
+.title-desc{
+    width: 100%;
+}
+.title-row{
+    height: 30px;
+}
+.title-col{
+    overflow: hidden;
+    height: 25px;
+    line-height: 1.5;
+}
+.col-right{
+    float: right;
+    margin:2px;
+}
+.avator-attend{ 
+    display: flex;
+    border-radius: 25px;
+    background-color: rgb(242, 242, 242);
+}
+.avator-attend span{
+    margin: 0px 6px;
+}
+.avator-intro span{
+    font-size: 14px;
+    line-height: 2;
+    padding: 0 3px;
+}
+.attend{
+    margin: 0 0 0 6px;
+    width: auto;
+    text-align: center;
+    border-radius: 25px;
+    background-color: rgb(202, 202, 202);
+}
+.attend:hover{
+    background-color: rgb(116, 112, 112);
+}
+#avator{
+    height: inherit;
+    width: inherit;
+}
+.live-video{
+    height: 300px;
+}
+.contact{
+    border: white 2px bolid;
+    padding:2px;
+    background-color: white;
+}
+

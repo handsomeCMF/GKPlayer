@@ -1,0 +1,78 @@
+<template>
+    <div class="personlive">
+        <div class="live">
+            <div class="live-title">
+                <div class="title-avator">
+                    <img id="avator" shape="square" :src="this.$route.params.avatorImg"/>
+                </div>
+                <div class="title-desc">
+                    <div class="title-row">
+                        <div class="title-col col-right ">
+                            <div class="avator-attend">
+                                <span>1111132</span>
+                                <div class="attend" v-if="isAttend" @click="attendAvator">
+                                    <i class="el-icon-star-off "></i>
+                                    <span>关注</span>
+                                </div>
+                                <div class="attend" v-else @click="attendAvator">
+                                    <i class="el-icon-star-on " ></i>
+                                    <span>已关注</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title-col">
+                            <h3>霸哥：我是唯一的神</h3>
+                        </div>
+                    </div>
+                    <div class="title-row">
+                        <div class="title-col col-right">
+                            <span></span>
+                        </div>
+                        <div class="title-col avator-intro">
+                            <span>最强王者</span>
+                            <span>上单教父</span>
+                            <span>gk认证的国服第一狗熊</span>
+                            <span>霸王计划核心人物</span>
+                        </div>
+                        </div>
+                    <div class="title-row">
+                        <div class="title-col col-right avator-intro">
+                            <span>分享</span>
+                            <span>收藏</span>
+                        </div>
+                        <div class="title-col avator-intro">
+                            <span>超级粉丝团 </span>
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="live-video">
+                <video src=""></video>
+            </div>
+        </div>
+        <div class="contact">
+
+        </div>
+    </div>
+
+</template>
+
+<style src='@/resources/css/liveroom.css'></style>
+
+<script>
+
+export default {
+  name: 'liveroom',
+  data () {
+    return {
+      isAttend: false,
+      avatorImg: this.$route.query.avatorImg
+    }
+  },
+  methods: {
+    attendAvator: function () {
+      this.isAttend = !this.isAttend
+    }
+  }
+}
+</script>

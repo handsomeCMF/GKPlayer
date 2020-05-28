@@ -9,7 +9,7 @@
         </ul>
       </div>
       <div class="header-right" >
-        <div class="header-right-nologin" v-if="!islogin">
+        <div class="header-right-nologin" v-if="!loginMess">
           <a @click="loginVisible=true">登录</a>|
           <a @click="registerVisible=true">注册</a>
         </div>
@@ -25,12 +25,12 @@
     </aside>
     <div class="main-layout">
       <section></section>
-      <router-view></router-view>
+      <router-view ></router-view>
     </div>
 
     <div>
       <el-dialog title="登录" :visible.sync="loginVisible">
-        <logdialog @submit="data=>loginVisible=!data"></logdialog>
+        <logdialog @submit="afterLogin"></logdialog>
       </el-dialog>
 
       <el-dialog title="注册" :visible.sync="registerVisible">
@@ -49,8 +49,6 @@ import Login from '../src/views/Login.vue'
 import Register from '../src/views/Register.vue'
 import { getCookie, cookieKeys } from './common/cookieTools.js'
 
-var tooken = getCookie(cookieKeys.userName)
-
 export default {
   name: 'app',
   components: {
@@ -60,21 +58,30 @@ export default {
   methods: {
     changeNav: function (val) {
       this.chooseNav = val
+    },
+    afterLogin: function (val) {
+      this.loginVisible = !val
+      this.islogin = true
     }
   },
   data () {
     return {
       chooseNav: 2,
-      islogin: tooken.length > 0,
+      islogin: getCookie(cookieKeys.userName).length > 0,
       loginVisible: false,
       registerVisible: false,
-      headerNav: [{ index: 1, name: '首页', path: '/Liveroom', target: '_self' },
+      headerNav: [{ index: 1, name: '首页', path: '/Liverooms', target: '_self' },
         { index: 2, name: '直播', path: '/streamers', target: '_self' },
         { index: 3, name: '视频', path: '/', target: '_self' },
         { index: 4, name: '游戏', path: '/', target: '_self' },
         { index: 5, name: '分类', path: '/', target: '_self' },
         { index: 6, name: '评论', path: '/', target: '_self' }
       ]
+    }
+  },
+  computed: {
+    loginMess () {
+      return this.islogin
     }
   }
 }
