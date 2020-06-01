@@ -31,7 +31,6 @@ export function put (url, params = {}, context) {
       .then(function (res) {
         if (res.status === 200) {
           if (res.data.status === 200) {
-            console.log(res.data.data.token)
             resolve(res.data.data)
           } else {
             var mes = res.data.status + ':' + res.data.message
@@ -42,6 +41,7 @@ export function put (url, params = {}, context) {
         }
       })
       .catch(function (error) {
+        console.log(error)
         reject(error)
       })
   })

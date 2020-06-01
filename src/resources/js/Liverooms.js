@@ -7,7 +7,7 @@ export default {
     return {
       pageSize: 1,
       liverooms: [],
-      total: 30,
+      total: 1,
       currentpage: 1
     }
   },

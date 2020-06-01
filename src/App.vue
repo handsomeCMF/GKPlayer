@@ -9,13 +9,17 @@
         </ul>
       </div>
       <div class="header-right" >
+        <div class="header-right-live">
+          <a><i class="el-icon-video-camera"></i><span>开播</span></a>
+          <router-link :to="{name:'liveroom',params:{id:123,avatorImg:''}}" >房间</router-link>
+        </div>
         <div class="header-right-nologin" v-if="!loginMess">
           <a @click="loginVisible=true">登录</a>|
           <a @click="registerVisible=true">注册</a>
         </div>
         <div class="header-right-login" v-else>
           <a >
-            <img src="@/assets/73311827_p0.jpg"/>
+              <img src="@/assets/73311827_p0.jpg"/>
           </a>
         </div>
       </div>

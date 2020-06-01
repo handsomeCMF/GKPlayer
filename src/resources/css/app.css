@@ -19,6 +19,7 @@
     text-decoration: none;
     cursor: pointer;
     width: 40px;
+    display: inline-block;
     background-color: transparent;
      color: rgba(255,255,255,1);
   }
@@ -26,17 +27,22 @@
     color: rgba(255,93,35,1);
   }
   .header-right{
+    display: flex;
     float: right;
     position: relative;
     margin-right: 20px;
     line-height: 3.5;
-    color: rgba(255,255,255,1);
   }
   .header-right a{
     text-decoration: none;
     background-color: transparent;
     margin:0px 6px;
     cursor: pointer;
+    display: inline-block;
+    color: rgba(255,255,255);
+  }
+  .header-right a:link{
+    color: rgba(255,255,255,1);
   }
   header{
     left: 0;
@@ -97,4 +103,8 @@
     width:55px;
     height: 55px;
     background-color: antiquewhite;
+  }
+
+  .header-right-live{
+    margin-right: 20px;
   }

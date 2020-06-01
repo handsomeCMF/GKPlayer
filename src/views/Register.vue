@@ -51,7 +51,9 @@ export default {
         nickname: this.nickname,
         gender: Number(this.gender)
       }
-      registerUser(data).then(mes => { alert(JSON.stringify(mes)) })
+      registerUser(data).then(mes => {
+
+      })
     }
   }
 }

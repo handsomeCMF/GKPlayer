@@ -3,7 +3,7 @@
         <div class="live">
             <div class="live-title">
                 <div class="title-avator">
-                    <img id="avator" shape="square" :src="this.$route.params.avatorImg"/>
+                    <img id="avator" shape="square" :src="(avatorImg===undefined || avatorImg === null)? '/img/73075882_p0.02bb4f94.png': avatorImg"/>
                 </div>
                 <div class="title-desc">
                     <div class="title-row">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="title-row">
                         <div class="title-col col-right">
-                            <span></span>
+                            <span>{{this.$route.params.id}}</span>
                         </div>
                         <div class="title-col avator-intro">
                             <span>最强王者</span>
@@ -66,7 +66,7 @@ export default {
   data () {
     return {
       isAttend: false,
-      avatorImg: this.$route.query.avatorImg
+      avatorImg: this.$route.params.avatorImg
     }
   },
   methods: {
