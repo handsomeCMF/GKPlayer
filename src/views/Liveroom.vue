@@ -9,7 +9,7 @@
                     <div class="title-row">
                         <div class="title-col col-right ">
                             <div class="avator-attend">
-                                <span>1111132</span>
+                                <span>{{roomNum}}</span>
                                 <div class="attend" v-if="isAttend" @click="attendAvator">
                                     <i class="el-icon-star-off "></i>
                                     <span>关注</span>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="title-row">
                         <div class="title-col col-right">
-                            <span>{{this.$route.params.id}}</span>
+                            <span>{{}}</span>
                         </div>
                         <div class="title-col avator-intro">
                             <span>最强王者</span>
@@ -47,32 +47,17 @@
                 </div>
             </div>
             <div class="live-video">
-                <video src=""></video>
+                <iframe class="video-iframe" ref="iframe" :src="liveUrl"></iframe>
             </div>
         </div>
         <div class="contact">
-
+            {{message}}
+            <button @click="postMessage">发送</button>
         </div>
     </div>
 
 </template>
 
 <style src='@/resources/css/liveroom.css'></style>
-
-<script>
-
-export default {
-  name: 'liveroom',
-  data () {
-    return {
-      isAttend: false,
-      avatorImg: this.$route.params.avatorImg
-    }
-  },
-  methods: {
-    attendAvator: function () {
-      this.isAttend = !this.isAttend
-    }
-  }
-}
+<script type="text/javascript" src='@/resources/js/Liveroom.js'>
 </script>

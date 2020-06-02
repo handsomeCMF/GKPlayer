@@ -1,4 +1,4 @@
-import { getByHeader, put } from '@/common/js/api.js'
+import { getByHeader, getByUrl, put } from '@/common/js/api.js'
 
 export async function roomList (params = {}, context) {
   const url = context.$domain + 'liveroom/list'
@@ -6,9 +6,9 @@ export async function roomList (params = {}, context) {
   return res
 }
 
-export async function getOwnerRomm (context) {
-  const url = context.$domain + 'user/liveroom'
-  var res = await getByHeader(url, context)
+export async function getOwnerRoom (params = {}, context) {
+  const url = context.$domain + 'liveroom'
+  var res = await getByUrl(url, params, context)
   return res
 }
 

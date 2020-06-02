@@ -34,10 +34,20 @@
 </template>
 
 <script>
+// var data = { event: 'video-fullscreen', params: { action: 'enter' } }
+// var data = { event: 'live-room-num', params: { num: 5566655 } }
+var data = { event: 'live-room-message', params: { from: 'iii', fromNick: 'test', message: '我好帅' } }
+window.parent.postMessage(data, '*')
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted () {
+    window.addEventListener('message', function (event) {
+      console.log(event)
+    })
   }
 }
 </script>

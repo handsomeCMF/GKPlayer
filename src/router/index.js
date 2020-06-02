@@ -5,6 +5,7 @@ import Login from '../views/Login.vue'
 import Home from '../views/Home.vue'
 import Liverooms from '../views/Liverooms.vue'
 import Liveroom from '../views/Liveroom.vue'
+import HelloWorld from '../components/HelloWorld.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/helloWorld',
+    name: 'helloWorld',
+    component: HelloWorld
   },
   {
     name: 'home',

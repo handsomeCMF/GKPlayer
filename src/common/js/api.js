@@ -1,6 +1,9 @@
 import axious from 'axios'
 import qs from 'qs'
 
+axious.defaults.baseURL = '/'
+axious.defaults.headers.get['Content-Type'] = 'application/json'
+
 // post方式请求
 export function post (url, params = {}, context) {
   var promise = new Promise(function (resolve, reject) {
@@ -86,10 +89,9 @@ export function getByUrl (url, params = {}, context) {
         url += '=' + params[keys[i]]
       }
     }
-    console.log('request:' + url)
     axious.get(url)
       .then(function (res) {
-        console.log('response:' + res)
+        console.log(res)
         if (res.status === 200) {
           resolve(res.data)
         } else {
