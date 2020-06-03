@@ -47,12 +47,20 @@
                 </div>
             </div>
             <div class="live-video">
-                <iframe class="video-iframe" ref="iframe" :src="liveUrl"></iframe>
+                <!-- <iframe class="video-iframe" ref="iframe" :src="liveUrl" @dblclick="FullScreenAction"></iframe> -->
+                <iframe class="video-iframe" ref="iframe" src="/helloWorld" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" ></iframe>
             </div>
         </div>
         <div class="contact">
-            {{message}}
-            <button @click="postMessage">发送</button>
+            <div class="contact-message">
+                <ul>
+                    <li  v-for="item in message" :key="item.id">{{item.mess}}</li>
+                </ul>
+            </div>
+            <div class="contact-talk">
+                <textarea cols="35" rows="5" ></textarea>
+                <button @click="postMessage">发送</button>
+            </div>
         </div>
     </div>
 

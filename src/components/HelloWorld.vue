@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <button @click="sendmessage">全屏</button>
+    <button @click="exit">推出全屏</button>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -43,6 +45,16 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    sendmessage: function () {
+      var data = { event: 'video-fullscreen', params: { action: 'enter' } }
+      window.parent.postMessage(data, '*')
+    },
+    exit: function () {
+      var data = { event: 'video-fullscreen', params: { action: 'exit' } }
+      window.parent.postMessage(data, '*')
+    }
   },
   mounted () {
     window.addEventListener('message', function (event) {

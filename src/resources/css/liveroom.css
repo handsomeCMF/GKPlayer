@@ -77,6 +77,18 @@
     padding:2px;
     background-color: white;
 }
+.contact-message{
+    height: 85%;
+}
+.contact-message ul{
+    list-style: none;
+}
+.contact-talk{
+    height: 15%;
+}
+
+.contact-talk button{
+}
 
 .video-iframe{
     border: none;
