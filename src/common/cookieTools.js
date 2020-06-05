@@ -1,5 +1,5 @@
 
-const cookieKeys = { userName: 'userName' }
+const cookieKeys = { userName: 'gk-userId' }
 
 var getCookie = function (cookieKey) {
   // 根据cookie的key来确定value的位置

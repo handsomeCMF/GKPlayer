@@ -78,16 +78,18 @@
     background-color: white;
 }
 .contact-message{
-    height: 85%;
+    height: 90%;
 }
 .contact-message ul{
     list-style: none;
 }
 .contact-talk{
-    height: 15%;
+    height: 10%;
+    display: flex;
 }
 
 .contact-talk button{
+    border-radius: 5px;
 }
 
 .video-iframe{

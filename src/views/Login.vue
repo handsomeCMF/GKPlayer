@@ -25,6 +25,7 @@
 <script>
 import { login as loginuser } from '../common/User.js'
 import { setCookie, cookieKeys } from '@/common/cookieTools.js'
+
 export default {
   name: 'login',
   data () {
@@ -35,13 +36,20 @@ export default {
   },
   methods: {
     login: function () {
+      const redirect = this.$route.query.redirect
       var logMes = {
         account: this.account,
         password: this.password
       }
       loginuser(logMes).then(mes => {
-        setCookie(cookieKeys.userName, mes.token)
+        setCookie(cookieKeys.userName, mes.userinfo.userId)
         this.$emit('submit', true)
+        if (redirect !== undefined) {
+          alert(redirect)
+          window.location.href = redirect
+        } else {
+          this.$router.push('/')
+        }
       })
     }
   }

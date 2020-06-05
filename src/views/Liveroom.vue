@@ -58,8 +58,8 @@
                 </ul>
             </div>
             <div class="contact-talk">
-                <textarea cols="35" rows="5" ></textarea>
-                <button @click="postMessage">发送</button>
+                    <textarea  rows="2" style="resize:none;width:80%"></textarea>
+                    <button style="width:20%" @click="postMessage">发送</button>
             </div>
         </div>
     </div>
