@@ -8,7 +8,9 @@ export default {
       userId: this.$route.params.id,
       roomNum: 1,
       message: [],
-      liveUrl: ''
+      liveUrl: '',
+      title: '',
+      contact: ''
     }
   },
   methods: {
@@ -18,14 +20,15 @@ export default {
     postMessage: function () {
       // 传递数据给iframe
       this.iframe = this.$refs.iframe
-      console.log(this.iframe)
-      var data = '123'
-      this.iframe.contentWindow.postMessage(data, '*')
+      if (this.contact !== '') {
+        this.iframe.contentWindow.postMessage(this.contact, '*')
+      }
+      this.contact = ''
     },
     getLiveUrl: function () {
       getOwnerRoom({ id: this.userId }, this).then(res => {
-        console.log(res.data.url)
         this.liveUrl = res.data.url
+        this.title = res.data.title
       })
     },
     lanchFullScreenAction: function (doc) {

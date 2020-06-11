@@ -77,23 +77,27 @@ export function getByHeader (url, params = {}, context) {
 
 // get方式请求 拼接地址
 export function getByUrl (url, params = {}, context) {
-  var promise = new Promise(function (resolve, reject) {
-    url += '?'
-    const keys = Object.keys(params)
-    for (let i = 0, length = keys.length; i < length; i++) {
-      if (i === 0) {
-        url += keys[i]
-        url += '=' + params[keys[i]]
-      } else {
-        url += '&' + keys[i]
-        url += '=' + params[keys[i]]
-      }
+  url += '?'
+  const keys = Object.keys(params)
+  for (let i = 0, length = keys.length; i < length; i++) {
+    if (i === 0) {
+      url += keys[i]
+      url += '=' + params[keys[i]]
+    } else {
+      url += '&' + keys[i]
+      url += '=' + params[keys[i]]
     }
+  }
+  var promise = new Promise(function (resolve, reject) {
     axious.get(url)
       .then(function (res) {
         console.log(res)
         if (res.status === 200) {
-          resolve(res.data)
+          if (res.data.status === 200) {
+            resolve(res.data)
+          } else {
+            reject(res.data.message)
+          }
         } else {
           reject(res.status)
         }

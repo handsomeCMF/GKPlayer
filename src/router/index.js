@@ -14,6 +14,7 @@ const routes = [
   {
     path: '/',
     name: 'main',
+    redirect: '/Liverooms',
     component: Main,
     children: [
       {

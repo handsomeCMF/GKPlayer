@@ -9,9 +9,9 @@
         </ul>
       </div>
       <div class="header-right" >
-        <div class="header-right-live">
-          <a><i class="el-icon-video-camera"></i><span>开播</span></a>
-          <router-link :to="{name:'liveroom',params:{id:123,avatorImg:''}}" >房间</router-link>
+        <div class="header-right-live" v-if="loginMess">
+          <a @click="openlive(userId)" ><i class="el-icon-video-camera"></i><span>开播</span></a>
+          <router-link :to="{name:'liveroom',params:{id:userId,avatorImg:''}}" >房间</router-link>
         </div>
         <div class="header-right-nologin" v-if="!loginMess">
           <a @click="loginVisible=true">登录</a>|
@@ -52,6 +52,7 @@
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import { getCookie, cookieKeys } from '@/common/cookieTools.js'
+import { getOwnerRoom } from '@/common/LiveRoom.js'
 
 export default {
   name: 'app',
@@ -66,11 +67,20 @@ export default {
     afterLogin: function (val) {
       this.loginVisible = !val
       this.islogin = true
+    },
+    openlive: function (userId) {
+      getOwnerRoom({ id: '5ca5cce6123a61b16c34047c' }, this).then(res => {
+        console.log(res.data.url)
+        window.open(res.data.url, '_blank')
+      }).catch(e => {
+        alert(e)
+      })
     }
   },
   data () {
     return {
       chooseNav: 2,
+      userId: getCookie(cookieKeys.userName),
       islogin: getCookie(cookieKeys.userName).length > 0,
       loginVisible: false,
       registerVisible: false,

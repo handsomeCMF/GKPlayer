@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="title-col">
-                            <h3>霸哥：我是唯一的神</h3>
+                            <h3>{{title}}</h3>
                         </div>
                     </div>
                     <div class="title-row">
@@ -58,7 +58,7 @@
                 </ul>
             </div>
             <div class="contact-talk">
-                    <textarea  rows="2" style="resize:none;width:80%"></textarea>
+                    <textarea ref="contact" v-model="contact" rows="2" style="resize:none;width:80%"></textarea>
                     <button style="width:20%" @click="postMessage">发送</button>
             </div>
         </div>
