@@ -47,8 +47,8 @@
                 </div>
             </div>
             <div class="live-video">
-                <!-- <iframe class="video-iframe" ref="iframe" :src="liveUrl" @dblclick="FullScreenAction"></iframe> -->
-                <iframe class="video-iframe" ref="iframe" src="/helloWorld" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" ></iframe>
+                <iframe class="video-iframe" ref="iframe" :src="liveUrl" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe>
+                <!-- <iframe class="video-iframe" ref="iframe" src="/helloWorld" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" ></iframe> -->
             </div>
         </div>
         <div class="contact">

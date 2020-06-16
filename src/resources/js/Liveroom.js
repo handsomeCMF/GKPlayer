@@ -1,4 +1,4 @@
-import { getOwnerRoom } from '@/common/LiveRoom.js'
+import { startLive, getOwnerRoom } from '@/common/LiveRoom.js'
 export default {
   name: 'liveroom',
   data () {
@@ -26,7 +26,9 @@ export default {
       this.contact = ''
     },
     getLiveUrl: function () {
+      startLive()
       getOwnerRoom({ id: this.userId }, this).then(res => {
+        // this.liveUrl = 'https://api.nulldream.xyz/live/?room=5ca5cce6123a61b16c34047c&client=streamer'
         this.liveUrl = res.data.url
         this.title = res.data.title
       })

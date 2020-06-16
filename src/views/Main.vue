@@ -52,7 +52,7 @@
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import { getCookie, cookieKeys } from '@/common/cookieTools.js'
-import { getOwnerRoom } from '@/common/LiveRoom.js'
+import { getUserRoom } from '@/common/LiveRoom.js'
 
 export default {
   name: 'app',
@@ -69,9 +69,12 @@ export default {
       this.islogin = true
     },
     openlive: function (userId) {
-      getOwnerRoom({ id: '5ca5cce6123a61b16c34047c' }, this).then(res => {
-        console.log(res.data.url)
-        window.open(res.data.url, '_blank')
+      getUserRoom({ id: userId }, this).then(res => {
+        const liveUrl = res.data.url
+        if (liveUrl.includes('watch')) {
+          liveUrl.replace('watch', 'streamer')
+        }
+        window.open(liveUrl, '_blank')
       }).catch(e => {
         alert(e)
       })
