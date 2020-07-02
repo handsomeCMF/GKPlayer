@@ -1,8 +1,8 @@
 # player
 
 效果图：
-https://github.com/handsomeCMF/GKPlayer/blob/master/src/assets/r1.png
-https://github.com/handsomeCMF/GKPlayer/blob/master/src/assets/r2.png
+![image](https://github.com/handsomeCMF/GKPlayer/blob/master/src/assets/r1.png)
+![image](https://github.com/handsomeCMF/GKPlayer/blob/master/src/assets/r2.png)
 
 ## Project setup
 ```
