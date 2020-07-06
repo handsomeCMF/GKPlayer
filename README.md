@@ -13,10 +13,10 @@
         直播状态显示
         弹幕交互
         用户身份校验
-# WebAPI
+ WebAPI
     requestFullscreen 手动全屏
     lockOrientation 适配移动端的横屏看直播
-# 直播页面
+ 直播页面
     webRTC 直播流传输
     socket.io 信令服务器
     交换 webRTC 的 sdp 与 candidate
